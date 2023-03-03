@@ -2,8 +2,23 @@ import React from 'react'
 import "./contact.css" 
 import {AiOutlineMail} from 'react-icons/ai'
 import {RiMessengerLine} from 'react-icons/ri'
+import { useRef } from 'react' 
+import emailjs from 'emailjs-com' 
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_l7qe3dk', 'template_dqibvhc', form.current, '7gRKxTiXO1EvyVv1W')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      })
+      e.target.reset();
+  };
   return (
     <section id="contact">
       <h5>Get In Touch</h5>
@@ -23,7 +38,7 @@ function Contact() {
             <a href='https://m.me/barnabas.bor' target='_blank'>Send a message</a>
           </article>
         </div>
-        <form action=''>
+        <form ref={form} onSubmit={sendEmail}>
           <input type='text' name='name' placeholder='Your Full Name' required/>
           <input type='email' name='email' placeholder='Your Email' required/>
           <textarea name='message' rows='7' placeholder='Your Message' required/>
