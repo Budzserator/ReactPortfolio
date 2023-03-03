@@ -1,8 +1,7 @@
 import React from 'react'
 import "./contact.css" 
 import {AiOutlineMail} from 'react-icons/ai'
-import {RiMessengerLine} from 'react-icons/ri' 
-import {AiOutlineWhatsApp} from 'react-icons/ai'
+import {RiMessengerLine} from 'react-icons/ri'
 
 function Contact() {
   return (
@@ -22,12 +21,6 @@ function Contact() {
             <h4>Messenger</h4>
             <h5>Barnabás Bor</h5>
             <a href='https://m.me/barnabas.bor' target='_blank'>Send a message</a>
-          </article>
-          <article className='contact__option'>
-            <AiOutlineWhatsApp/>
-            <h4>WhatsApp</h4>
-            <h5>+36709426248</h5>
-            <a href='https://api.whatsapp.com/send?phone=+36709426248' target='_blank'>Send a message</a>
           </article>
         </div>
         <form action=''>
